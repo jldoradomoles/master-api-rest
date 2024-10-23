@@ -9,43 +9,41 @@ import Avatar from '@mui/material/Avatar/Avatar';
 import IconButton from '@mui/material/IconButton/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { HotelEntityVm } from '../character-collection.vm';
-import * as classes from './hotel-card.styles';
+import { CharacterEntityVm } from '../character-collection.vm';
+import * as classes from './character-card.styles';
 
 interface Props {
-  hotel: HotelEntityVm;
+  character: CharacterEntityVm;
   onEdit: (id: string) => void;
-  onDelete: (id: string) => void;
 }
 
 export const HotelCard: React.FunctionComponent<Props> = (props) => {
-  const { hotel, onEdit, onDelete } = props;
-
+  const { character, onEdit } = props;
   return (
     <Card>
       <CardHeader
-        avatar={<Avatar aria-label="Hotel">{hotel.rating}</Avatar>}
-        title={hotel.name}
-        subheader={hotel.address}
+        avatar={<Avatar aria-label="Hotel">{character.id}</Avatar>}
+        title={character.name}
+        subheader={character.gender}
       />
       <CardContent>
         <div className={classes.content}>
           <CardMedia
-            image={hotel.picture}
-            title={hotel.name}
+            image={character.image}
+            title={character.name}
             style={{ height: 0, paddingTop: '56.25%' }}
           />
           <Typography variant="subtitle1" gutterBottom>
-            {hotel.description}
+            Especie: {character.species} 
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+             Estado:  {character.status}
           </Typography>
         </div>
       </CardContent>
       <CardActions>
-        <IconButton onClick={() => onEdit(hotel.id)}>
+        <IconButton onClick={() => onEdit(character.id)}>
           <EditIcon />
-        </IconButton>
-        <IconButton onClick={() => onDelete(hotel.id)}>
-          <DeleteIcon />
         </IconButton>
       </CardActions>
     </Card>

@@ -1,13 +1,16 @@
-import { HotelEntityApi } from './character-collection.api-model';
-import { mockHotelCollection } from './hotel-collection.mock-data';
+import { CharacterEntityApi } from './character-collection.api-model';
+import axios from 'axios';
 
-let hotelCollection = [...mockHotelCollection];
+const url = 'https://rickandmortyapi.com/api';
 
-export const getHotelCollection = async (): Promise<HotelEntityApi[]> => {
-  return hotelCollection;
+export const getCharacterCollection = async (): Promise<
+  CharacterEntityApi[]
+> => {
+  const response = await axios.get(`${url}/character`);
+  return response.data.results;
 };
 
-export const deleteHotel = async (id: string): Promise<boolean> => {
-  hotelCollection = hotelCollection.filter((h) => h.id !== id);
-  return true;
+export const getCharacter = async (id: string): Promise<CharacterEntityApi> => {
+  const response = await axios.get(`${url}/character/${id}`);
+  return response.data;
 };
