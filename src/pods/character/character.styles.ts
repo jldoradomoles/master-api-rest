@@ -4,4 +4,9 @@ export const root = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  .flex {
+    display: flex;
+    align-items: center;
+  }
 `;
