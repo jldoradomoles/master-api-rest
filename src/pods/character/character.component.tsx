@@ -60,16 +60,62 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
           <Typography variant="subtitle1" gutterBottom>
             Cantidad de episodios: {character.episode.length}
           </Typography>
-              {/* {character.episode.map((episode, index) => (
-                <Typography key={index} variant="body2" gutterBottom>
-                  {index + 1 + ', ' }
+          <Typography variant="h6" gutterBottom>
+            Frases:
+          </Typography>
+          <ul>
+            {character.sentences.map((sentence, index) => (
+              <li key={index}>
+                <Typography variant="body1" gutterBottom>
+                  {sentence}
                 </Typography>
-                ))} */}
-          
+              </li>
+            ))}
+          </ul>
+          {/* {character.sentences && character.sentences.length > 0 && (
+            <div>
+              <Typography variant="h6" gutterBottom>
+                Frases:
+              </Typography>
+              {character.sentences.map((sentence, index) => (
+                <Typography key={index} variant="body1" gutterBottom>
+                  {sentence + ', ' + ' '}
+                </Typography>
+              ))}
+              
+            </div>
+          )} */}
         </div>
       </CardContent>
     </Card>
-      <Formik
+
+    <Formik
+      initialValues={{ sentence: '' }}
+      onSubmit={(values, { resetForm }) => {
+        const updatedCharacter = {
+      ...character,
+      sentences: [...(character.sentences || []), values.sentence],
+        };
+        onSave(updatedCharacter);
+        resetForm();
+      }}
+    >
+      {({ values, handleChange }) => (
+        <Form className={classes.root}>
+      <TextFieldComponent
+        name="sentence"
+        label="Nueva frase"
+        value={values.sentence}
+        onChange={handleChange}
+      />
+      <Button type="submit" variant="contained" color="primary">
+        Añadir frase
+      </Button>
+        </Form>
+      )}
+    </Formik>
+
+      {/* <Formik
       onSubmit={onSave}
       initialValues={character}
       enableReinitialize={true}
@@ -77,21 +123,13 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
       >
         {() => (
           <Form className={classes.root}>
-            <TextFieldComponent name="name" label="Name" />
-            {/* <TextFieldComponent name="address" label="Address" />
-            <RatingComponent name="rating" max={5} />
-            <TextFieldComponent
-              name="description"
-              label="Description"
-              multiline={true}
-              rows={3}
-            /> */}
+            <TextFieldComponent name="sentences" label="Nueva frase" value={character.sentences || ''} />
             <Button type="submit" variant="contained" color="primary">
               Save
             </Button>
           </Form>
         )}
-      </Formik>
+      </Formik> */}
     </div>
   );
 };

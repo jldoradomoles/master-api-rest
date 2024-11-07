@@ -33,7 +33,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
 
   const handleSave = async (character: Character) => {
     const apiCharacter = mapCharacterFromApiToVm(character);
-    const success = await api.saveCharacter(apiCharacter);
+    const success = await api.updateCharacterSentence(apiCharacter);
     if (success) {
       navigate(-1);
     } else {
