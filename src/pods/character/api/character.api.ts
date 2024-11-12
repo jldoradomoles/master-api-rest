@@ -9,10 +9,6 @@ export const getCharacter = async (id: string): Promise<Character> => {
   return response.data;
 };
 
-export const saveCharacter = async (character: Character): Promise<boolean> => {
-  return true;
-};
-
 export const updateCharacterSentence = async (
   character: Character
 ): Promise<CharacterEntityApi> => {

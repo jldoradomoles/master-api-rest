@@ -9,4 +9,12 @@ export const root = css`
     display: flex;
     align-items: center;
   }
+
+  .container-form {
+    width: 50%;
+  }
+
+  .button {
+    width: 20%;
+  }
 `;

@@ -17,7 +17,7 @@ interface Props {
   onEdit: (id: string) => void;
 }
 
-export const HotelCard: React.FunctionComponent<Props> = (props) => {
+export const CharacterCard: React.FunctionComponent<Props> = (props) => {
   const { character, onEdit } = props;
   return (
     <Card>

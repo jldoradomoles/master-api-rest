@@ -6,7 +6,10 @@
         "Hola, soy Ricky",
         "Hola, soy Rick Sanchez",
         "otra",
-        "nueva frase"
+        "nueva frase",
+        "Vaya si eres tu Morty!",
+        "otra",
+        "mas"
       ],
       "name": "Rick Sanchez",
       "status": "Alive",
@@ -80,7 +83,9 @@
     },
     {
       "id": 2,
-      "sentences": [],
+      "sentences": [
+        "una"
+      ],
       "name": "Morty Smith",
       "status": "Alive",
       "species": "Human",

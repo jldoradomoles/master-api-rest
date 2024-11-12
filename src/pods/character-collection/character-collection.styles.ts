@@ -5,6 +5,14 @@ export const root = css`
   & > :nth-child(n + 2) {
     margin-top: 2rem;
   }
+
+  .pre-btn {
+    margin-right: 1rem;
+  }
+
+  .search-input {
+    margin-top: 1rem;
+  }
 `;
 
 export const list = css`
@@ -23,4 +31,8 @@ export const list = css`
   @media (min-width: ${theme.breakpoints.values.md}px) {
     grid-template-columns: repeat(3, 1fr);
   }
+`;
+
+export const button = css`
+  margin-right: 1rem;
 `;

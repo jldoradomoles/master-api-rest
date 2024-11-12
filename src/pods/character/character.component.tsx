@@ -72,19 +72,6 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
               </li>
             ))}
           </ul>
-          {/* {character.sentences && character.sentences.length > 0 && (
-            <div>
-              <Typography variant="h6" gutterBottom>
-                Frases:
-              </Typography>
-              {character.sentences.map((sentence, index) => (
-                <Typography key={index} variant="body1" gutterBottom>
-                  {sentence + ', ' + ' '}
-                </Typography>
-              ))}
-              
-            </div>
-          )} */}
         </div>
       </CardContent>
     </Card>
@@ -103,33 +90,19 @@ export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
       {({ values, handleChange }) => (
         <Form className={classes.root}>
       <TextFieldComponent
+        className='container-form'
         name="sentence"
         label="Nueva frase"
         value={values.sentence}
         onChange={handleChange}
       />
-      <Button type="submit" variant="contained" color="primary">
+      <Button className='button' type="submit" variant="contained" color="primary">
         Añadir frase
       </Button>
         </Form>
       )}
     </Formik>
 
-      {/* <Formik
-      onSubmit={onSave}
-      initialValues={character}
-      enableReinitialize={true}
-      validate={formValidation.validateForm}
-      >
-        {() => (
-          <Form className={classes.root}>
-            <TextFieldComponent name="sentences" label="Nueva frase" value={character.sentences || ''} />
-            <Button type="submit" variant="contained" color="primary">
-              Save
-            </Button>
-          </Form>
-        )}
-      </Formik> */}
     </div>
   );
 };
