@@ -5,6 +5,10 @@ export const root = css`
   & > :nth-child(n + 2) {
     margin-top: 2rem;
   }
+
+  .pre-btn {
+    margin-right: 1rem;
+  }
 `;
 
 export const list = css`

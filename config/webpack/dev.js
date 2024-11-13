@@ -15,6 +15,7 @@ module.exports = merge(base, {
     hot: true,
     proxy: {
       '/api': 'http://localhost:3000',
+      '/rickandmortyapi.com/api': 'https://rickandmortyapi.com/api',
     },
   },
   module: {
