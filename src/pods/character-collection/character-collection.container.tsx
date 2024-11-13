@@ -4,8 +4,9 @@ import { linkRoutes } from 'core/router';
 // import { deleteHotel } from './api';
 import { useCharacterCollection } from './character-collection.hook';
 import { CharecterCollectionComponent } from './character-collection.component';
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import * as classes from './character-collection.styles';
+import './character-collection.container.css';
 
 export const CharacterCollectionContainer = () => {
   const { characterCollection, loadCharacterCollection } = useCharacterCollection();
@@ -42,18 +43,19 @@ export const CharacterCollectionContainer = () => {
       characterCollection={filteredCharacterCollection.length > 0 ? filteredCharacterCollection : characterCollection}
       onEdit={handleEdit}
     />
-    <div className={classes.root}></div>
-    <Button className='pre-btn' variant="contained" color="primary" onClick={() => handlePageChange('prev')}>
-      Previous
-    </Button>
-    <Button className={classes.button} variant="contained" color="primary" onClick={() => handlePageChange('next')}>
-      Next
-    </Button>
-    <div>
-      <input
-        className='search-input'
+    <div className='btn-container'>
+      <Button className='btn-prev' variant="contained" color="primary" onClick={() => handlePageChange('prev')}>
+        Anterior
+      </Button>
+      <Button className='btn' variant="contained" color="primary" onClick={() => handlePageChange('next')}>
+        Siguiente
+      </Button>
+    </div>
+    <div className='search-input'>
+      <TextField
+        className=''
         type="text"
-        placeholder="Busca por nombre de personaje"
+        placeholder="Busca por nombre"
         onChange={(e) => {
           const searchTerm = e.target.value.toLowerCase();
           const filteredCharacters = characterCollection.filter(character =>

@@ -158,7 +158,9 @@
     },
     {
       "id": 3,
-      "sentences": [],
+      "sentences": [
+        "mas"
+      ],
       "name": "Summer Smith",
       "status": "Alive",
       "species": "Human",
@@ -394,7 +396,9 @@
     },
     {
       "id": 8,
-      "sentences": [],
+      "sentences": [
+        "mas"
+      ],
       "name": "Adjudicator Rick",
       "status": "Dead",
       "species": "Human",
@@ -601,7 +605,9 @@
     },
     {
       "id": 17,
-      "sentences": [],
+      "sentences": [
+        "otra"
+      ],
       "name": "Annie",
       "status": "Alive",
       "species": "Human",
